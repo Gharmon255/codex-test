@@ -1,0 +1,13 @@
+[project]
+name = "whale-watch"
+version = "0.1.0"
+description = "Bitcoin, Ethereum, and TRON whale transfer monitor with market signal alerts."
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+whale-watch = "whale_watch.cli:main"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

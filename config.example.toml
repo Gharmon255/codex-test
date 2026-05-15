@@ -1,0 +1,50 @@
+[bot]
+poll_seconds = 120
+lookback_minutes = 20
+dry_run = true
+
+[whale_alert]
+# Get an API key from Whale Alert, then either put it here or set WHALE_ALERT_API_KEY.
+api_key = ""
+min_usd_value = 1000000
+
+[signals]
+# Alert only when a signal reaches this absolute score.
+alert_score_threshold = 55
+
+[learning]
+enabled = true
+# Keep false until you trust the bot's review history. When true, it applies threshold multipliers stored in SQLite.
+auto_tune = false
+database_path = "data/whale_watch.sqlite3"
+# After a signal fires, wait this long before checking whether price moved in the expected direction.
+follow_up_minutes = 240
+# Minimum price move required to call a signal useful instead of neutral noise.
+min_move_percent = 1.5
+min_samples = 8
+low_success_rate = 0.40
+high_success_rate = 0.68
+tune_step_percent = 15.0
+
+[assets.BTC]
+symbol = "btc"
+display_name = "Bitcoin"
+whale_usd = 5000000
+
+[assets.ETH]
+symbol = "eth"
+display_name = "Ethereum"
+whale_usd = 2500000
+
+[assets.TRX]
+symbol = "trx"
+display_name = "TRON"
+whale_usd = 1000000
+
+[alerts]
+console = true
+# Optional generic JSON webhook. Works with many automation tools.
+webhook_url = ""
+# Optional Telegram bot endpoint, e.g. https://api.telegram.org/botTOKEN/sendMessage
+telegram_url = ""
+telegram_chat_id = ""

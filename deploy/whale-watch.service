@@ -1,0 +1,17 @@
+[Unit]
+Description=Whale Watch crypto signal bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/whale-watch
+EnvironmentFile=-/etc/whale-watch.env
+ExecStart=/opt/whale-watch/.venv/bin/python -m whale_watch.cli --config /etc/whale-watch/config.toml
+Restart=always
+RestartSec=15
+User=pi
+Group=pi
+
+[Install]
+WantedBy=multi-user.target
